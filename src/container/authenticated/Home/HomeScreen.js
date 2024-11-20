@@ -6,7 +6,7 @@ import { View, Text, StyleSheet } from 'react-native';
 const HomeScreen  = () => {
     return (
         <View style={styles.container}>
-            <Text>HomeScreen </Text>
+            <Text>HomeScreen on the bottom tab apairs here</Text>
         </View>
     );
 };
