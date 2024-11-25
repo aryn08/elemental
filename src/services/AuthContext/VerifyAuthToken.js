@@ -1,7 +1,7 @@
 // services/verifyAuth.js
-import AsyncStorage from '@react-native-async-storage/async-storage'; 
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const verifyAuth = async () => {
+export const VerifyAuthToken = async () => {
   try {
     const token = await AsyncStorage.getItem('authToken');
     if (token) {

@@ -1,24 +1,25 @@
 // navigation/RootNavigator.js
 import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { verifyAuth } from '../services/verifyAuth/verifyAuth';
 import AuthStackNavigator from './authNavigation/AuthStack';
 import AppStack from './stack/AppStack';
+import { VerifyAuthToken } from '../services/AuthContext/VerifyAuthToken';
+import { useAuth } from '../services/AuthContext/AuthContext';
+import { StatusBar } from 'react-native';
 
 const RootNavigator = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const { isAuthenticated } = useAuth(); 
 
   useEffect(() => {
-    const checkAuth = async () => {
-      const authStatus = await verifyAuth();
-      setIsAuthenticated(authStatus);
-    };
-
-    checkAuth();
-  }, []);
+  }, [isAuthenticated]); 
 
   return (
     <NavigationContainer>
+      <StatusBar
+          animated={true}
+          backgroundColor="#2c3e50"
+        />
       {isAuthenticated ? <AppStack /> : <AuthStackNavigator />}
     </NavigationContainer>
   );

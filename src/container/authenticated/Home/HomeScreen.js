@@ -1,9 +1,14 @@
 //import liraries
-import React, { Component } from 'react';
+import React, {useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import SplashScreen from 'react-native-splash-screen';
 
 // create a component
 const HomeScreen  = () => {
+    useEffect(() => {
+        SplashScreen.hide()
+      }, [])    
+
     return (
         <View style={styles.container}>
             <Text>HomeScreen on the bottom tab apairs here</Text>

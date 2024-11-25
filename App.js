@@ -1,16 +1,15 @@
-import React, { useEffect } from 'react';
-import { SafeAreaView } from 'react-native';
-import SplashScreen from 'react-native-splash-screen';
+import React from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import RootNavigator from './src/navigation/RootNavigator';
+import { AuthProvider } from './src/services/AuthContext/AuthContext';
 
 const App = () => {
-  useEffect(() => {
-    SplashScreen.hide()
-  }, [])
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <RootNavigator />
-    </SafeAreaView>
+    <SafeAreaProvider style={{ flex: 1 }}>
+      <AuthProvider>
+        <RootNavigator />
+      </AuthProvider>
+    </SafeAreaProvider>
   );
 };
 

@@ -3,8 +3,8 @@ import { StyleSheet } from 'react-native';
 
 const BottomTabStyles = StyleSheet.create({
     iconStyle:{
-        width : '10%',
-        height: '10%',
+        width : '20%',
+        height: '20%',
         resizeMode:'contain'
     },
 });
